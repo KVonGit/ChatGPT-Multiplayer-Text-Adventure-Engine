@@ -15,6 +15,12 @@ $playerName = $_SESSION["player_name"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Interface</title>
     <script>
+        document.getElementById("commandInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendCommand();
+            }
+        });
         function sendCommand() {
             const command = document.getElementById("commandInput").value;
             fetch("command.php", {
